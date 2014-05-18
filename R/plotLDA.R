@@ -1,0 +1,33 @@
+makePlotLDA_Precision <- function(inputPath, pngOutputFileName, metric) {
+  plot_colors <- c("black","blue","red","orange","green")  
+  data <- read.csv(inputPath, header = TRUE, sep = ",")
+  plot(data$IR10, type="o", pch=15, lty=1, lwd=1.5, cex=0.8, col=plot_colors[1], ylim=c(0.4, 1), axes=FALSE, ann=FALSE)
+  lines(data$IR30, type="o", pch=15, lty=1, lwd=1.5, cex=0.8, col=plot_colors[2])
+  lines(data$IR50, type="o", pch=15, lty=1, lwd=1.5, cex=0.8, col=plot_colors[3])  
+  lines(data$IR70, type="o", pch=15, lty=1, lwd=1.5, cex=0.8, col=plot_colors[4])
+  lines(data$IR100, type="o", pch=15, lty=1, lwd=1.5, cex=0.8, col=plot_colors[5])
+  box()
+  axis(1, at=1:16, lab=c("0.2", "0.25", "0.3", "0.35", "0.4", "0.45", "0.5", "0.55", "0.6", "0.65", "0.7", "0.75", "0.8", "0.85", "0.9", "0.95"))
+  axis(2, at=c(0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1), tck=1, lty=3, col="gray50", las=2)
+  abline(v=seq(1, 16, 2), lty=3, col="gray50")
+  title(xlab= "Threshold")
+  title(ylab= metric)
+  legend("bottomleft", c("IR10", "IR30", "IR50","IR70","IR100"), cex=0.8, col=plot_colors, pch=15, lty=1,lwd=3)
+}
+
+makePlotLDA_Recall <- function(inputPath, pngOutputFileName, metric) {
+  plot_colors <- c("black","blue","red","orange","green")  
+  data <- read.csv(inputPath, header = TRUE, sep = ",")
+  plot(data$IR10, type="o", pch=15, lty=1, lwd=1.5, cex=0.8, col=plot_colors[1], ylim=c(0, 0.7), axes=FALSE, ann=FALSE)
+  lines(data$IR30, type="o", pch=15, lty=1, lwd=1.5, cex=0.8, col=plot_colors[2])
+  lines(data$IR50, type="o", pch=15, lty=1, lwd=1.5, cex=0.8, col=plot_colors[3])  
+  lines(data$IR70, type="o", pch=15, lty=1, lwd=1.5, cex=0.8, col=plot_colors[4])
+  lines(data$IR100, type="o", pch=15, lty=1, lwd=1.5, cex=0.8, col=plot_colors[5])
+  box()
+  axis(1, at=1:16, lab=c("0.2", "0.25", "0.3", "0.35", "0.4", "0.45", "0.5", "0.55", "0.6", "0.65", "0.7", "0.75", "0.8", "0.85", "0.9", "0.95"))
+  axis(2, at=c(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7), tck=1, lty=3, col="gray50", las=2)
+  abline(v=seq(1, 16, 2), lty=3, col="gray50")
+  title(xlab= "Threshold")
+  title(ylab= metric)
+  legend("topright", c("IR10", "IR30", "IR50","IR70","IR100"), cex=0.8, col=plot_colors, pch=15, lty=1, lwd=3)
+}
