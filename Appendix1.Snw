@@ -1,0 +1,163 @@
+\chapter{Appendix}
+\label{chapter:Appendix}
+
+\setkeys{Gin}{width=0.8\textwidth} 
+\SweaveOpts{prefix.string=sweave/sweave}
+
+<<results=hide,echo=false>>=
+options(SweaveHooks = list(fig = function() par(mfrow=c(1,1))))
+@
+
+<<echo=false>>=
+source("d:/Google Drive/Play/Similarity/experiments/R/table.R")
+source("d:/Google Drive/Play/Similarity/experiments/R/plotHist.R")
+source("d:/Google Drive/Play/Similarity/experiments/R/plotLDA.R")
+
+<<label=lda-precision-all-words, fig=true,echo=false, include=false>>=
+makePlotLDA_Precision("d:/Google Drive/Play/Similarity/experiments/results/lda/lda-all-freqwords/results-precision.txt", 
+            "d:/Google Drive/Play/Similarity/experiments/graphs/lda/lda-all-freqwords/precision-IR.png",
+            "Precision"
+)
+<<label=lda-recall-all-words, fig=true,echo=false, include=false>>=
+makePlotLDA_Recall("d:/Google Drive/Play/Similarity/experiments/results/lda/lda-all-freqwords/results-recall.txt", 
+            "d:/Google Drive/Play/Similarity/experiments/graphs/lda/lda-all-freqwords/recall-IR.png",
+            "Recall"
+)
+<<label=lda-f1score-all-words, fig=true,echo=false, include=false>>=
+makePlotLDA_Recall("d:/Google Drive/Play/Similarity/experiments/results/lda/lda-all-freqwords/results-f1score.txt", 
+            "d:/Google Drive/Play/Similarity/experiments/graphs/lda/lda-all-freqwords/f1score-IR.png",
+            "F1 Score"
+)
+
+<<label=lda-precision-5-100-words, fig=true,echo=false, include=false>>=
+makePlotLDA_Precision("d:/Google Drive/Play/Similarity/experiments/results/lda/lda-5-100-freqwords/results-precision.txt", 
+            "d:/Google Drive/Play/Similarity/experiments/graphs/lda/lda-5-100-freqwords/precision-IR.png",
+            "Precision"
+)
+<<label=lda-recall-5-100-words, fig=true,echo=false, include=false>>=
+makePlotLDA_Recall("d:/Google Drive/Play/Similarity/experiments/results/lda/lda-5-100-freqwords/results-recall.txt", 
+            "d:/Google Drive/Play/Similarity/experiments/graphs/lda/lda-5-100-freqwords/recall-IR.png",
+            "Recall"
+)
+<<label=lda-f1score-5-100-words, fig=true,echo=false, include=false>>=
+makePlotLDA_Recall("d:/Google Drive/Play/Similarity/experiments/results/lda/lda-5-100-freqwords/results-f1score.txt", 
+            "d:/Google Drive/Play/Similarity/experiments/graphs/lda/lda-5-100-freqwords/f1score-IR.png",
+            "F1 Score"
+)
+
+<<label=lda-words-all-hist, fig=true,echo=false, include=false>>=
+makeHist("d:/Google Drive/Play/Similarity/experiments/results/lda/wordcloud.txt")
+<<label=lda-words-3-100-hist, fig=true,echo=false, include=false>>=
+makeHist("d:/Google Drive/Play/Similarity/experiments/results/lda/wordcloud_freq_between_3_100.txt")
+<<label=lda-words-5-100-hist, fig=true,echo=false, include=false>>=
+makeHist("d:/Google Drive/Play/Similarity/experiments/results/lda/wordcloud_freq_between_5_100.txt")
+@
+
+\clearpage
+
+\begin{center}
+<<label=tab3,echo=FALSE,results=tex>>=
+makeTable(
+	path= "d:/Google Drive/Play/Similarity/experiments/results/semantic/dbscan/eps-0-08-minpts-2-cluster-formatted.txt",
+	caption="Classifier results for DBSCAN with minPts=2, epsilon=0.08 using the cluster validation strategy")
+@
+\end{center}
+\begin{center}
+<<label=tab4,echo=FALSE,results=tex>>=
+makeTable(
+	path= "d:/Google Drive/Play/Similarity/experiments/results/semantic/dbscan/eps-0-08-minpts-2-individual-formatted.txt",
+	caption="Classifier results for DBSCAN with minPts=2, epsilon=0.08 using the individual review pair validation strategy")
+@
+\end{center}
+\begin{center}
+<<label=tab5,echo=FALSE,results=tex>>=
+makeTable(
+	path= "d:/Google Drive/Play/Similarity/experiments/results/semantic/dbscan/eps-0-05-minpts-2-cluster-formatted.txt",
+	caption="Classifier results for DBSCAN with minPts=2, epsilon=0.05 using the cluster validation strategy")
+@
+\end{center}
+\begin{center}
+<<label=tab6,echo=FALSE,results=tex>>=
+makeTable(
+	path= "d:/Google Drive/Play/Similarity/experiments/results/semantic/dbscan/eps-0-05-minpts-2-individual-formatted.txt",
+	caption="Classifier results for DBSCAN with minPts=2, epsilon=0.05 using the individual review pair validation strategy")
+@
+\end{center}
+
+\clearpage
+
+\begin{table}
+\begin{center}
+    \begin{tabular}{ | p{0.3\textwidth} | p{0.2\textwidth} |}
+    \hline
+    \textbf{Word} & \textbf{Frequency} \\ \hline
+      delivery & 1086\\ \hline
+	company & 1148\\ \hline
+	website & 1154\\ \hline
+	customer & 1209\\ \hline
+	recommend & 1737\\ \hline
+	time & 1787\\ \hline
+	buy & 1788\\ \hline
+	good & 1918\\ \hline
+	great & 1940\\ \hline
+	order & 2069\\ \hline
+	price & 2085\\ \hline
+	service & 2563\\ \hline
+	number & 2872 \\ \hline
+    \end{tabular}
+\caption{Word frequencies in the Trustpilot review dataset}
+\label{tab:wordfreq}
+\end{center}
+\end{table}
+
+\begin{figure}
+\begin{center}
+\subfloat[Subfigure 1 list of figures text][all words]{
+\includegraphics[width=0.5\textwidth]{sweave/sweave-lda-words-all-hist}
+\label{fig:lda-words-all-hist-appendix}}
+\subfloat[Subfigure 2 list of figures text][words with a frequency between 5 and 100]{
+\includegraphics[width=0.5\textwidth]{sweave/sweave-lda-words-5-100-hist}
+\label{fig:lda-words-5-100-hist-appendix}}
+\qquad
+\caption{Log histogram for the words' frequencies}    
+\label{fig:lda-words-hist-5-100-appendix}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\subfloat[Subfigure 1 list of figures text][Precision]{
+\includegraphics[width=0.5\textwidth]{sweave/sweave-lda-precision-all-words}
+\label{fig:lda_precision-appendix}}
+\subfloat[Subfigure 2 list of figures text][Recall]{
+\includegraphics[width=0.5\textwidth]{sweave/sweave-lda-recall-all-words}
+\label{fig:lda_recall-appendix}}
+\qquad
+\begin{center}
+\subfloat[Subfigure 3 list of figures text][F1 Score]{
+\includegraphics[width=0.5\textwidth]{sweave/sweave-lda-f1score-all-words}
+\label{fig:lda_f1score-appendix}}
+\end{center}
+\caption{LDA results for the information radius similarity measure for all words regardless of their frequency}    
+\label{fig:lda-appendix-all-words}
+\end{center}
+\end{figure}
+
+\begin{figure}[ht]
+\begin{center}
+\subfloat[Subfigure 1 list of figures text][Precision]{
+\includegraphics[width=0.5\textwidth]{sweave/sweave-lda-precision-5-100-words}
+\label{fig:lda_precision-appendix}}
+\subfloat[Subfigure 2 list of figures text][Recall]{
+\includegraphics[width=0.5\textwidth]{sweave/sweave-lda-recall-5-100-words}
+\label{fig:lda_recall-appendix}}
+\qquad
+\begin{center}
+\subfloat[Subfigure 3 list of figures text][F1 Score]{
+\includegraphics[width=0.5\textwidth]{sweave/sweave-lda-f1score-5-100-words}
+\label{fig:lda_f1score-appendix}}
+\end{center}
+\caption{LDA results for the information radius similarity measure for words with a frequency between 5 and 100}    
+\label{fig:lda-appendix-5-100-words}
+\end{center}
+\end{figure}
