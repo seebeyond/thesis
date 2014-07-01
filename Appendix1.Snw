@@ -9,9 +9,9 @@ options(SweaveHooks = list(fig = function() par(mfrow=c(1,1))))
 @
 
 <<echo=false>>=
-source("d:/Google Drive/Play/Similarity/experiments/R/table.R")
-source("d:/Google Drive/Play/Similarity/experiments/R/plotHist.R")
-source("d:/Google Drive/Play/Similarity/experiments/R/plotLDA.R")
+source("R/table.R")
+source("R/plotHist.R")
+source("R/plotLDA.R")
 
 <<label=lda-precision-all-words, fig=true,echo=false, include=false>>=
 makePlotLDA_Precision("d:/Google Drive/Play/Similarity/experiments/results/lda/lda-all-freqwords/results-precision.txt", 

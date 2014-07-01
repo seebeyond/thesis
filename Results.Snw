@@ -9,12 +9,12 @@
 options(SweaveHooks = list(fig = function() par(mfrow=c(1,1))))
 
 <<echo=false>>=
-source("d:/Google Drive/Play/Similarity/experiments/R/plotFn.R")
-source("d:/Google Drive/Play/Similarity/experiments/R/plotCDF.R")
-source("d:/Google Drive/Play/Similarity/experiments/R/plotLDA.R")
-source("d:/Google Drive/Play/Similarity/experiments/R/plotHist.R")
-source("d:/Google Drive/Play/Similarity/experiments/R/table.R")
-source("d:/Google Drive/Play/Similarity/experiments/R/tableLDA.R")
+source("R/plotFn.R")
+source("R/plotCDF.R")
+source("R/plotLDA.R")
+source("R/plotHist.R")
+source("R/table.R")
+source("R/tableLDA.R")
 
 <<label=dbscan-minpts-2-eps-0-1-cluster-precision, fig=true,echo=false, include=false>>=
 makePlot_Precision("d:/Google Drive/Play/Similarity/experiments/results/semantic/dbscan/eps-0-1-minpts-2-cluster-precision.txt", 
