@@ -112,50 +112,50 @@ makePlot_Recall(
            "d:/Google Drive/Play/Similarity/experiments/graphs/optics-minpts-2-eps-01-individual-f1score.png",
 	"OPTICS",  "F1 Score", "Individual", 2, 0.1)
 
-<<label=ottmihalcea, fig=true,echo=false, include=false>>=
+<<label=ottmihalcea, fig=true,echo=false, include=false,pdf=FALSE, png=TRUE>>=
 makePlot_CDF(
 	"d:/Google Drive/Play/Myle Ott/all_reviews/results/ott_deceptive_mihalcea.rdata",
 	"d:/Google Drive/Play/Myle Ott/all_reviews/results/ott_truthful_mihalcea.rdata",
 	metric="mihalcea"
 )
-<<label=ottcosine, fig=true,echo=false, include=false>>=
+<<label=ottcosine, fig=true,echo=false, include=false,pdf=FALSE, png=TRUE>>=
 makePlot_CDF(
 	"d:/Google Drive/Play/Myle Ott/all_reviews/results/ott_deceptive_cosine.rdata",
 	"d:/Google Drive/Play/Myle Ott/all_reviews/results/ott_truthful_cosine.rdata",
 	metric="cosine"
 )
-<<label=ottcosineposnonlemmatized, fig=true,echo=false, include=false>>=
+<<label=ottcosineposnonlemmatized, fig=true,echo=false, include=false,pdf=FALSE, png=TRUE>>=
 makePlot_CDF(
 	"d:/Google Drive/Play/Myle Ott/all_reviews/results/ott_deceptive_cosineposnonlemmatized.rdata",
 	"d:/Google Drive/Play/Myle Ott/all_reviews/results/ott_truthful_cosineposnonlemmatized.rdata",
 	metric="cosine pos non lemmatized"
 )
-<<label=ottcosineposlemmatized, fig=true,echo=false, include=false>>=
+<<label=ottcosineposlemmatized, fig=true,echo=false, include=false,pdf=FALSE, png=TRUE>>=
 makePlot_CDF(
 	"d:/Google Drive/Play/Myle Ott/all_reviews/results/ott_deceptive_cosineposlemmatized.rdata",
 	"d:/Google Drive/Play/Myle Ott/all_reviews/results/ott_truthful_cosineposlemmatized.rdata",
 	metric="cosine pos lemmatized"
 )
 
-<<label=trustpilotmihalceacdf, fig=true,echo=false, include=false>>=
+<<label=trustpilotmihalceacdf, fig=true,echo=false, include=false,pdf=FALSE, png=TRUE>>=
 makePlot_CDF(
 	"d:/Google Drive/Play/Myle Ott/all_reviews/trustpilot_dataset/trustpilot_deceptive_mihalcea.rdata",
 	"d:/Google Drive/Play/Myle Ott/all_reviews/trustpilot_dataset/trustpilot_truthful_mihalcea.rdata",
 	metric="mihalcea"
 )
-<<label=trustpilotcosinecdf, fig=true,echo=false, include=false>>=
+<<label=trustpilotcosinecdf, fig=true,echo=false, include=false,pdf=FALSE, png=TRUE>>=
 makePlot_CDF(
 	"d:/Google Drive/Play/Myle Ott/all_reviews/trustpilot_dataset/trustpilot_deceptive_cosine.rdata",
 	"d:/Google Drive/Play/Myle Ott/all_reviews/trustpilot_dataset/trustpilot_truthful_cosine.rdata",
 	metric="cosine"
 )
-<<label=trustpilotcosineposnonlemmatizedcdf, fig=true,echo=false, include=false>>=
+<<label=trustpilotcosineposnonlemmatizedcdf, fig=true,echo=false, include=false,pdf=FALSE, png=TRUE>>=
 makePlot_CDF(
 	"d:/Google Drive/Play/Myle Ott/all_reviews/trustpilot_dataset/trustpilot_deceptive_cosineposnonlemmatized.rdata",
 	"d:/Google Drive/Play/Myle Ott/all_reviews/trustpilot_dataset/trustpilot_truthful_cosineposnonlemmatized.rdata",
 	metric="cosine pos non lemmatized"
 )
-<<label=trustpilotcosineposlemmatizedcdf, fig=true,echo=false, include=false>>=
+<<label=trustpilotcosineposlemmatizedcdf, fig=true,echo=false, include=false,pdf=FALSE, png=TRUE>>=
 makePlot_CDF(
 	"d:/Google Drive/Play/Myle Ott/all_reviews/trustpilot_dataset/trustpilot_deceptive_cosineposlemmatized.rdata",
 	"d:/Google Drive/Play/Myle Ott/all_reviews/trustpilot_dataset/trustpilot_truthful_cosineposlemmatized.rdata",
