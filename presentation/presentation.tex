@@ -101,10 +101,12 @@ Other researches used a bag-of-words approach and calculated the frequency of ce
 			\item Compare the performance to vectorial-based similarity measures (cosine)
 		\end{itemize}
 	\end{block}
-}
+
 	\note{This thesis proposes a complete solution to detect opinion spam of one-time reviewers using semantic similarity. It also proposes a method to detect opinion spam, using recent research models aimed at extracting product aspects from short texts, based on topic modeling and in particular on Latent Dirichlet Allocation (LDA). Another goal was to test this hypothesis on real-life reviews and make a comparison with the existing vectorial similarity models, which are based on cosine similarity. 
 
 My hypothesis is that semantic similarity measures should outperform vector based models because they should also capture more subtle deception behavior, meaning more paraphrase intent of the spammers. Detecting fake reviews through semantic similarity methods would inherently work on users who operate in groups, know one other and paraphrase or rephrase each other's reviews inside the same group of spammers.}
+
+}
 
 
 \subsection{Textual Similarity - WordNet}
@@ -119,6 +121,7 @@ My hypothesis is that semantic similarity measures should outperform vector base
 	\end{equation}
 	\normalsize
 	\end{block}
+
 	\begin{block}{Knowledge-based measures}
 	For $T_1$ and $T_2$, their semantic similarity (Mihalcea et al.) can be formulated as:
 	\scriptsize
@@ -127,6 +130,17 @@ My hypothesis is that semantic similarity measures should outperform vector base
 	\end{equation}
 	\normalsize
 	\end{block}
+
+	\begin{center}
+		\textbf{transport} - "The \textbf{shop} now offers \textbf{night} \textbf{delivery}"
+	\end{center}
+
+	\note{
+Given a metric for word-to-word similarity(WordNet) and a measure of word specificity(idf)(no. of documents in corpus / no. of documents containing the word), we define the semantic similarity of two text segments T1 and T2 using a metric that combines the semantic similarities of each text segment in turn with respect to the other text segment. 
+
+First, for each word w in the segment T1 we try to identify the word in the segment T2 that has the highest semantic similarity (maxSim(w,T2)). Next, the same process is applied to determine the most similar word in T1 starting with words in T2. The word similarities are then weighted is applied to determine the most similar word in T1 starting with words in T2. The word similarities are then weighted with the corresponding word specificity, summed up, and normalized with the length of each text segment. Finally the resulting similarity scores are combined using a simple average. Only nouns and verbs are matched, for adjectives and adverbs - lexical matching is used. 
+
+This means that, for instance, the most similar word to the noun "transport" within the text "The shop now offers night delivery" will be sought among the nouns "shop", "night" and "delivery", and will ignore the words with a different part-of-speech - "offers", "now".}
 
 }
 
