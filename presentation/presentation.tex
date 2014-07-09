@@ -64,7 +64,7 @@
 }
 
 \subsection{Related Work}
-\frame[allowframebreaks]{
+\frame{
 	\frametitle{Two main directions: behavioral features and text analysis}
 		\begin{center}
 			\includegraphics[width=\textwidth,keepaspectratio]{fig/fake_review.png} 
@@ -73,9 +73,9 @@
 		\begin{center}
 			\begin{itemize}
 				\item Behavioral approach gives good results for "elite" users 
-				\item $\sim$ 90\% of reviewers write a single review
 				\item Textual analysis = mostly cosine similarity, but also linguistic cues of deceptive writing - using more verbs, adverbs and pronouns
 				\item "husband" or "vacation" = highly suspicious based on their incidence in fake reviews
+				\item $\sim$ 90\% of reviewers write a single review
 				\item \textbf{What happens to singleton reviewers?} 
 			\end{itemize}
 
@@ -111,6 +111,17 @@ My hypothesis is that semantic similarity measures should outperform vector base
 
 \subsection{Textual Similarity - WordNet}
 \frame{
+	\frametitle{WordNet synsets}
+
+	\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{fig/transport.png}
+	\label{transport}
+	\end{figure} 
+
+}
+
+\frame{
 	\frametitle{Textual smilarity}
 
 	\begin{block}{Vectorial-based measures}
@@ -144,35 +155,24 @@ This means that, for instance, the most similar word to the noun "transport" wit
 
 }
 
-\frame{
-	\frametitle{WordNet synsets}
-
-	\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{fig/transport.png}
-	\label{transport}
-	\end{figure} 
-
-}
-
 \section{Distribution of truthful and deceptive reviews}
 \frame{
 	\frametitle{Distribution of truthful and deceptive reviews}
 
 	\begin{block}{Do fake reviews have a different similarity distribution compared to the truthful reviews?}
 		\begin{itemize}
-			\item Trustpilot dataset - 8990 reviews 
-			\item Ott dataset - 800 reviews (400 fake obtained through AMT)
-			\item Stop words removal, POS tagging (extracted NN, JJ, VB)
+			\item Trustpilot/Ott datasets - 8990 reviews/800 reviews
+			\item Cumulative distribution function $CDF_X(x)$ = $P(X \leq x)$
+			\item Is there a gap between the two similarity curves for truthful/fake reviews? 
 		\end{itemize}
 	\end{block}
-	\begin{block}{Cumulative distribution function}
-		\begin{equation}
-			CDF_X(x) = \operatorname{P}(X\leq x).
-		\end{equation}
+	\begin{block}{Preprocessing}
 		\begin{itemize}
-			\item Do the distribution curves of the similarity measures overlap for truthful/fake reviews?
-			\item Is there a gap between the two curves? If so, what are its bounds?
+			\item Stop words removal, POS tagging (extracted NN, JJ, VB)
+			\item \textit{"I am working hard on my master thesis at DTU"}
+			\item \textit{I/PRP am/VBP working/VBG hard/RB on/IN my/PRP master/NN thesis/NN at/IN DTU/NNP}
+			\item am$\xrightarrow{lemma}$be, working$\xrightarrow{lemma}$work
+			\item Cosine (all POS), Cosine (NN, JJ, VB), Cosine with lemmatization, Semantic
 		\end{itemize}
 	\end{block}
 	
@@ -322,7 +322,7 @@ The dataset of Ott has been created using Amazon Mechanical Turk (AMT), so it is
 					x’ = \frac{x -min(x)}{max(x)-min(x)}
 				\end{equation}
 	
-				\item Stanford POS tagger, removed stop words, lemmatization
+				\item Stanford POS tagger (extracted NN, JJ, VB), lemmatization, removed stop words
 				\vspace{.4cm}
 
 				\textit{"I am working hard on my master thesis at DTU"}
@@ -621,7 +621,7 @@ Generally, the F1 score obtained through the cluster validation strategy is high
 		\begin{itemize}
 			\item opinion phrases : <aspect, sentiment>
 			\item opinion phrases: <hotel, unique>, <hotel, charming>, <staff, courteous>
-			\item different words = same aspect (laptop,notebook, notebook computer)
+			\item different words = same aspect (laptop, notebook, notebook computer)
 			\item reviews = short documents = \textbf{latent topics} mixture = \textbf{review aspects }mixture
 			\item \textbf{reviews similarity = topics similarity => topic modeling problem}
 			\item advantage: language agnostic, not like WordNet
@@ -765,7 +765,7 @@ For 10 topics, the precision is more or less a flat line at 65\%. This could hap
 
 	\begin{center}
 		\Huge
-		\textbf{Questions?}
+		\textbf{Thank you!}
 		\normalsize
 	\end{center}
 
